@@ -11,7 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ParkingApp.API.Core;
+using ParkingApp.API.Core.Repositories;
 using ParkingApp.API.Persistence;
+using ParkingApp.API.Persistence.Repositories;
 
 namespace ParkingApp.API
 {
@@ -29,6 +32,9 @@ namespace ParkingApp.API
         {
             services.AddDbContext<ParkingDbContext>(options => 
                 options.UseSqlServer(Configuration["ConnectionString:Default"]));
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

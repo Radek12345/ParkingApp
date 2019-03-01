@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParkingApp.API.Core.Domain;
+using ParkingApp.API.Core.Repositories;
 using ParkingApp.API.Persistence;
 
 namespace ParkingApp.API.Controllers
@@ -11,25 +12,25 @@ namespace ParkingApp.API.Controllers
     [ApiController]
     public class ParkingAreasController : ControllerBase
     {
-        private readonly ParkingDbContext context;
+        private readonly IRepository<ParkingArea> repo;
 
-        public ParkingAreasController(ParkingDbContext context)
+        public ParkingAreasController(IRepository<ParkingArea> repo)
         {
-            this.context = context;
+            this.repo = repo;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var areas = await context.ParkingAreas.ToListAsync();
+            var areas = await repo.GetAll();
             return Ok(areas);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var areas = await context.ParkingAreas.FirstOrDefaultAsync(p => p.Id == id);
-            return Ok(areas);
+            var area = await repo.Get(id);
+            return Ok(area);
         }
     }
 }
