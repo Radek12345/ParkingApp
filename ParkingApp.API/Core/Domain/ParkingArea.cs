@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,5 +21,7 @@ namespace ParkingApp.API.Core.Domain
 
         [Column(TypeName = "decimal(3, 2)")]
         public decimal? Discount { get; set; }
+
+        public DateTime? LastEdit { get; set; }
     }
 }
