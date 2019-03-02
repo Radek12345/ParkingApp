@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 import { ParkingAreaService } from './../../services/parking-area.service';
 import { ParkingArea } from './../../models/parking-area';
@@ -10,10 +11,14 @@ import { ParkingArea } from './../../models/parking-area';
 })
 export class PaymentComponent implements OnInit {
   private _parkingAreas: ParkingArea[];
+  bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(private parkingAreaService: ParkingAreaService) { }
 
   ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-dark-blue'
+    };
     this.loadParkingAreas();
   }
 
