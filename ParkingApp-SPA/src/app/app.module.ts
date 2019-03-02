@@ -1,8 +1,10 @@
-import { PaymentComponent } from './components/payment/payment.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { ParkingAreaService } from './services/parking-area.service';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,12 @@ import { AppComponent } from './app.component';
     PaymentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ParkingAreaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

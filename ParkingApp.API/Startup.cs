@@ -55,6 +55,7 @@ namespace ParkingApp.API
             }
 
             // app.UseHttpsRedirection();
+            app.UseCors(o => o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }
