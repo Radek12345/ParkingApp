@@ -9,7 +9,7 @@ import { ParkingArea } from './../../models/parking-area';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  private parkingAreas: ParkingArea[];
+  private _parkingAreas: ParkingArea[];
 
   constructor(private parkingAreaService: ParkingAreaService) { }
 
@@ -19,9 +19,12 @@ export class PaymentComponent implements OnInit {
 
   private loadParkingAreas() {
     this.parkingAreaService.getParkingAreas().subscribe(parkingAreas => {
-      this.parkingAreas = parkingAreas;
-      console.log(this.parkingAreas);
+      this._parkingAreas = parkingAreas;
     });
+  }
+
+  get parkingAreas() {
+    return this._parkingAreas;
   }
 
 }
