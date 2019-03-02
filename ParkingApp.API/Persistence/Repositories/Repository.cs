@@ -23,5 +23,15 @@ namespace ParkingApp.API.Persistence.Repositories
         {
             return await context.Set<T>().FindAsync(id);
         }
+
+        public void Add(T entity)
+        {
+            context.Set<T>().Add(entity);
+        }
+
+        public void Remove(T entity)
+        {
+            context.Set<T>().Remove(entity);
+        }
     }
 }

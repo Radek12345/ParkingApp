@@ -9,6 +9,8 @@ namespace ParkingApp.API.Mapping
         public MappingProfile()
         {
             CreateMap<ParkingArea, ParkingAreaResource>();
+            CreateMap<ParkingAreaResource, ParkingArea>()
+                .ForMember(p => p.Id, exp => exp.Ignore());
         }
     }
 }

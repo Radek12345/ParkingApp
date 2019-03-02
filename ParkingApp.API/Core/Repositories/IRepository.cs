@@ -8,5 +8,9 @@ namespace ParkingApp.API.Core.Repositories
         Task<IEnumerable<T>> GetAll();
 
         Task<T> Get(int id);
+
+        void Add(T entity);
+
+        void Remove(T entity);
     }
 }
