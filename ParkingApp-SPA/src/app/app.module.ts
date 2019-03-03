@@ -7,6 +7,7 @@ import { TimepickerModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { ParkingAreaService } from './services/parking-area.service';
 import { PaymentComponent } from './components/payment/payment.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PaymentComponent } from './components/payment/payment.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot()
   ],
