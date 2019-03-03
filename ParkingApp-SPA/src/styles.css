@@ -1,3 +1,12 @@
 @import '../node_modules/bootswatch/dist/superhero/bootstrap.min.css';
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
+
+.bs-datepicker-head {
+    text-align: center;
+}
+
+.container {
+    max-width: 540px; 
+    text-align: center;
+}

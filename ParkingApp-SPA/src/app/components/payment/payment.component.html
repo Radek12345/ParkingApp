@@ -1,7 +1,7 @@
-<form>
+<form #form="ngForm">
   <div class="form-group">
     <label for="exampleFormControlSelect1">Parking areas:</label>
-    <select class="form-control" id="parkingArea"
+    <select class="form-control" id="parkingArea" required
       [(ngModel)]="parkingAreaId" name="parkingArea">
       
       <option *ngFor="let parkingArea of parkingAreas" 
@@ -11,16 +11,16 @@
   </div>
   <div class="form-group left-placed">
     <label>Time start:</label>
-    <timepicker [(ngModel)]="timeStart" name="timeStart"></timepicker>
+    <timepicker [(ngModel)]="timeStart" name="timeStart" required></timepicker>
     <label>Time end:</label>
-    <timepicker [(ngModel)]="timeEnd" name="timeEnd"></timepicker>
+    <timepicker [(ngModel)]="timeEnd" name="timeEnd" required></timepicker>
   </div>
   <div class="form-group">
       <label for="exampleFormControlInput1">Parking day:</label>
-      <input type="text" class="form-control" [(ngModel)]="parkingDay" name="parkingDay"
+      <input type="text" class="form-control" [(ngModel)]="parkingDay" name="parkingDay" required
         bsDatepicker [bsConfig]="bsConfig" id="exampleFormControlInput1">
   </div>
-  <button class="btn btn-primary" (click)="calculateFee()">Calculate fee</button>
+  <button class="btn btn-primary" [disabled]="form.invalid" (click)="calculateFee()">Calculate fee</button>
 </form>
 <div *ngIf="fee" class="mt-4">
   <h3>You have {{fee | currency}} to pay.</h3>
