@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { ParkingAreaService } from './services/parking-area.service';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ManagementComponent } from './components/management/management.component';
+import { MinValueValidatorDirective } from './validators/min-value-validator.directive';
+import { MaxValueValidatorDirective } from './validators/max-value-validator.directive';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ManagementComponent } from './components/management/management.componen
     AppComponent,
     PaymentComponent,
     ManagementComponent,
-    ParkingAreaFormComponent
+    ParkingAreaFormComponent,
+    MinValueValidatorDirective,
+    MaxValueValidatorDirective
   ],
   imports: [
     BrowserModule,
