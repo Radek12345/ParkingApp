@@ -1,3 +1,4 @@
+import { ParkingAreaFormComponent } from './components/parking-area-form/parking-area-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +16,8 @@ import { ManagementComponent } from './components/management/management.componen
   declarations: [
     AppComponent,
     PaymentComponent,
-    ManagementComponent
+    ManagementComponent,
+    ParkingAreaFormComponent
   ],
   imports: [
     BrowserModule,

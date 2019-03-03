@@ -5,3 +5,8 @@
 .bs-datepicker-head {
     text-align: center;
 }
+
+.container-narrow-center {
+    max-width: 540px; 
+    text-align: center;
+}

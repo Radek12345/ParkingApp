@@ -21,4 +21,8 @@ export class ParkingAreaService {
     return this.http.get<ParkingArea[]>(this.baseUrl);
   }
 
+  createParkingArea(parkingArea: ParkingArea) {
+    return this.http.post(this.baseUrl, parkingArea);
+  }
+
 }
