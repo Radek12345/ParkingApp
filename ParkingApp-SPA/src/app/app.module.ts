@@ -14,28 +14,32 @@ import { ManagementComponent } from './components/management/management.componen
 import { MinValueValidatorDirective } from './validators/min-value-validator.directive';
 import { MaxValueValidatorDirective } from './validators/max-value-validator.directive';
 import { routes } from './routes';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PaymentComponent,
-    ManagementComponent,
-    ParkingAreaFormComponent,
-    MinValueValidatorDirective,
-    MaxValueValidatorDirective
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    BsDatepickerModule.forRoot(),
-    TimepickerModule.forRoot(),
-    RouterModule.forRoot(routes)
-  ],
-  providers: [
-    ParkingAreaService
-  ],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      PaymentComponent,
+      ManagementComponent,
+      ParkingAreaFormComponent,
+      MinValueValidatorDirective,
+      MaxValueValidatorDirective,
+      HomeComponent
+   ],
+   imports: [
+      BrowserModule,
+      HttpClientModule,
+      FormsModule,
+      BsDatepickerModule.forRoot(),
+      TimepickerModule.forRoot(),
+      RouterModule.forRoot(routes)
+   ],
+   providers: [
+      ParkingAreaService
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
