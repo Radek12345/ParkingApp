@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { TimepickerModule } from 'ngx-bootstrap';
 
@@ -12,6 +13,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ManagementComponent } from './components/management/management.component';
 import { MinValueValidatorDirective } from './validators/min-value-validator.directive';
 import { MaxValueValidatorDirective } from './validators/max-value-validator.directive';
+import { routes } from './routes';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { MaxValueValidatorDirective } from './validators/max-value-validator.dir
     HttpClientModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    RouterModule.forRoot(routes)
   ],
   providers: [
     ParkingAreaService
