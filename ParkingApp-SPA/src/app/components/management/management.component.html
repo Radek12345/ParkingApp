@@ -18,7 +18,7 @@
         <td>{{parkingArea.weekendHourlyRate}}</td>
         <td>{{parkingArea.discount == null ? '0%' : parkingArea.discount | percent}}</td>
         <td>
-          <button class="btn btn-primary btn-sm mr-2">Edit</button>
+          <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/parking-area-form', parkingArea.id]">Edit</button>
           <button class="btn btn-danger btn-sm" (click)="deleteParkingArea(parkingArea.id)">Delete</button>
         </td>
       </tr>

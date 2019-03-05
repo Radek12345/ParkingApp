@@ -1,7 +1,8 @@
-import { ParkingAreaService } from './../../services/parking-area.service';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ParkingArea } from './../../models/parking-area';
+import { ParkingAreaService } from './../../services/parking-area.service';
 
 @Component({
   selector: 'app-parking-area-form',
@@ -17,16 +18,40 @@ export class ParkingAreaFormComponent implements OnInit {
     discount: 0
   };
 
-  constructor(private parkingAreaService: ParkingAreaService) { }
+  isEditMode = false;
+
+  constructor(private parkingAreaService: ParkingAreaService, private router: Router,
+    private route: ActivatedRoute) { 
+      route.params.subscribe(p => {
+        if (+p['id']) {
+          this.isEditMode = true;
+          this.parkingArea.id = +p['id'];
+        }
+      });
+    }
 
   ngOnInit() {
+    if (this.isEditMode) {
+      this.parkingAreaService.getParkingArea(this.parkingArea.id).subscribe(parkingArea => {
+        this.parkingArea = parkingArea;
+        this.parkingArea.discount *= 100;
+      });
+    }
   }
 
   createArea() {
     this.parkingArea.discount /= 100;
 
     this.parkingAreaService.createParkingArea(this.parkingArea).subscribe(() => {
-      console.log('success');
+      this.router.navigate(['/management']);
+    });
+  }
+
+  editArea() {
+    this.parkingArea.discount /= 100;
+
+    this.parkingAreaService.updateParkingArea(this.parkingArea).subscribe(() => {
+      this.router.navigate(['/management']);
     });
   }
 

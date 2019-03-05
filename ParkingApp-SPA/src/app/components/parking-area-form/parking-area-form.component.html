@@ -1,6 +1,6 @@
 <div class="container container-narrow-center">
   <h2 class="mb-3">Parking Area</h2>
-  <form #form="ngForm" (ngSubmit)="createArea()">
+  <form #form="ngForm">
     <div class="form-group">
       <label for="name">Area name:</label>
       <input type="text" class="form-control" id="name" [(ngModel)]="parkingArea.name" 
@@ -8,12 +8,12 @@
     </div>
     <div class="form-group">
       <label for="weekdaysHourlyRate">Weekdays Hourly Rate:</label>
-      <input type="number" class="form-control" id="weekdaysHourlyRate"
+      <input type="number" class="form-control" id="weekdaysHourlyRate" [minValue]="0" [maxValue]="100"
         [(ngModel)]="parkingArea.weekdaysHourlyRate" name="weekdaysHourlyRate" required>
     </div>
     <div class="form-group">
       <label for="weekendHourlyRate">Weekend Hourly Rate:</label>
-      <input type="number" class="form-control" id="weekendHourlyRate"
+      <input type="number" class="form-control" id="weekendHourlyRate" [minValue]="0" [maxValue]="100"
         [(ngModel)]="parkingArea.weekendHourlyRate" name="weekendHourlyRate" required>
     </div>
     <div class="form-group">
@@ -21,6 +21,11 @@
       <input type="number" [minValue]="0" [maxValue]="100" class="form-control" id="discount" 
         [(ngModel)]="parkingArea.discount" name="discount" required>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Create</button>
+    <button *ngIf="!isEditMode" (click)="createArea()" class="btn btn-primary" [disabled]="form.invalid">
+      Create
+    </button>
+    <button *ngIf="isEditMode" (click)="editArea()" class="btn btn-primary" [disabled]="form.invalid">
+      Edit
+    </button>
   </form>
 </div>

@@ -25,6 +25,10 @@ export class ParkingAreaService {
     return this.http.post(this.baseUrl, parkingArea);
   }
 
+  updateParkingArea(parkingArea: ParkingArea) {
+    return this.http.put(this.baseUrl + '/' + parkingArea.id, parkingArea);
+  }
+
   deleteParkingArea(id: number) {
     return this.http.delete(this.baseUrl + '/' + id);
   }
