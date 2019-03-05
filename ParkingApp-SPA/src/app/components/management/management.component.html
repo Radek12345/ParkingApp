@@ -1,6 +1,14 @@
+<button class="btn btn-info ml-1 mt-1" [routerLink]="['/home']">
+  <i class="fa fa-home mr-1"></i>
+  Go home
+</button>
+
 <div class="container">
   <h2 class="mb-4">Parking Areas</h2>
-  <button class="btn btn-success mb-3" [routerLink]="['/parking-area-form']">Add new area</button>
+  <button class="btn btn-success mb-3" [routerLink]="['/parking-area-form']">
+    <i class="fa fa-plus mr-1"></i>
+    Add new area
+  </button>
   <table class="table">
     <thead>
       <tr>
@@ -18,8 +26,14 @@
         <td>{{parkingArea.weekendHourlyRate}}</td>
         <td>{{parkingArea.discount == null ? '0%' : parkingArea.discount | percent}}</td>
         <td>
-          <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/parking-area-form', parkingArea.id]">Edit</button>
-          <button class="btn btn-danger btn-sm" (click)="deleteParkingArea(parkingArea.id)">Delete</button>
+          <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/parking-area-form', parkingArea.id]">
+            <i class="fa fa-pencil mr-1"></i>
+            Edit
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteParkingArea(parkingArea.id)">
+            <i class="fa fa-trash-o mr-1"></i>
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>

@@ -21,7 +21,9 @@
         <input type="text" class="form-control" [(ngModel)]="parkingDay" name="parkingDay" required
           bsDatepicker [bsConfig]="bsConfig" id="exampleFormControlInput1">
     </div>
-    <button class="btn btn-primary" [disabled]="form.invalid" (click)="calculateFee()">Calculate fee</button>
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="calculateFee()">
+      Calculate fee
+    </button>
   </form>
   <div *ngIf="fee" class="mt-4">
     <h3>You have {{fee | currency}} to pay.</h3>

@@ -21,7 +21,7 @@ export class ParkingAreaFormComponent implements OnInit {
   isEditMode = false;
 
   constructor(private parkingAreaService: ParkingAreaService, private router: Router,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
       route.params.subscribe(p => {
         if (+p['id']) {
           this.isEditMode = true;
