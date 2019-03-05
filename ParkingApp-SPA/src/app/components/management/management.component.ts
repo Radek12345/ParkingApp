@@ -23,6 +23,15 @@ export class ManagementComponent implements OnInit {
     });
   }
 
+  deleteParkingArea(id: number) {
+    if (confirm('Do you want to delete this parking area?')) {
+      this.parkingAreaService.deleteParkingArea(id).subscribe(() => {
+        const index = this._parkingAreas.findIndex(p => p.id === id);
+        this._parkingAreas.splice(index, 1);
+      });
+    }
+  }
+
   get parkingAreas() {
     return this._parkingAreas;
   }
